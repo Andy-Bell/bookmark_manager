@@ -14,6 +14,8 @@ gem 'dm-transactions'
 gem 'rake'
 gem 'bcrypt'
 gem 'sinatra-flash'
+gem 'EmojifyRspecFormatter'
+gem 'sinatra-partial'
 
 group :test do
   gem 'database_cleaner'
