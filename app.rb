@@ -7,6 +7,7 @@ require_relative 'data_mapper_setup'
 
 
 class BookMarkM < Sinatra::Base
+  use Rack::MethodOverride
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
@@ -41,6 +42,12 @@ class BookMarkM < Sinatra::Base
       flash.now[:errors] = ['The email or password is incorrect']
       erb :'sessions/new'
     end
+  end
+
+  delete '/sessions' do
+    session[:user_id] = nil
+    flash.keep[:notice] = 'Goodbye!'
+    redirect to '/links'
   end
 
   post '/links' do
