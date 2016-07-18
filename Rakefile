@@ -1,5 +1,5 @@
 require 'data_mapper'
-require_relative 'app.rb'
+require './app/app.rb'
 
 namespace :db do
   desc "Non destructive upgrade"
@@ -7,7 +7,6 @@ namespace :db do
     DataMapper.auto_upgrade!
     puts "Auto-upgrade complete (no data loss)"
   end
-
 
   desc "Destructive upgrade"
   task :auto_migrate do

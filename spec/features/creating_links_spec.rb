@@ -1,11 +1,14 @@
-require 'spec_helper'
+feature 'Creating Links' do
+  scenario 'I can create a new link' do
+    visit '/links/new' 
+    fill_in 'url', with: 'http://www.zombo.com'
+    fill_in 'title', with: 'This is Zombocom'
+    click_button 'Create link'
 
-feature 'create new links' do
-  scenario 'fill in a form that creates a link' do
-    visit 'links/new'
-    fill_in('title', with: 'Apple')
-    fill_in('url', with: 'http://www.apple.com')
-    click_button('Create link')
-    expect(page).to have_content('Apple')
+    expect(current_path).to eq '/links'
+
+    within 'ul#links' do
+      expect(page).to have_content ('This is Zombocom')
+    end
   end
 end
