@@ -1,5 +1,10 @@
 #Bookmark Manager
 
+##About
+
+This project is a small bookmark manager built as part of the Makers Academy boot camp, aiming to help teach the students the basics of databases and ORMs.
+
+
 ##User Stories
 As a time-pressed user
 So I can quickly reach my favourite websites
